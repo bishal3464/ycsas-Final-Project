@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Learning Academy</title>
+
+<style>
+:root{
+    --primary:#7b3fe4;
+    --accent:#2ec4b6;
+    --bg:#f5f7fb;
+    --card:#ffffff;
+    --sidebar:#eef0ff;
+    --text:#2b2b2b;
+}
+
+/* DARK MODE */
+body.dark{
+    --bg:#121212;
+    --card:#1e1e1e;
+    --sidebar:#1a1a1a;
+    --text:#eaeaea;
+}
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Arial, sans-serif;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    display:flex;
+    min-height:100vh;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:240px;
+    background:var(--sidebar);
+    padding:25px;
+    position:fixed;
+    height:100vh;
+}
+.sidebar h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:var(--primary);
+}
+.sidebar a{
+    display:block;
+    text-decoration:none;
+    color:var(--text);
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:10px;
+    transition:0.3s;
+}
+.sidebar a:hover{
+    background:var(--primary);
+    color:#fff;
+}
+.toggle{
+    margin-top:25px;
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#000;
+    color:#fff;
+    cursor:pointer;
+}
+
+/* CONTENT */
+.content{
+    margin-left:240px;
+    padding:40px;
+    width:100%;
+}
+
+/* HERO */
+.hero{
+    background:linear-gradient(135deg,var(--primary),#ae99db);
+    color:#fff;
+    padding:45px;
+    border-radius:18px;
+    text-align:center;
+}
+.hero h1{font-size:32px;}
+.hero p{margin-top:10px;opacity:0.9;}
+
+section{margin-top:55px;}
+
+/* TITLE */
+.title{
+    color:var(--accent);
+    border-left:5px solid var(--accent);
+    padding-left:12px;
+    margin-bottom:25px;
+    font-size:22px;
+}
+
+/* CARD */
+.card{
+    background:var(--card);
+    padding:25px;
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* FORM */
+input, select{
+    width:100%;
+    padding:14px;
+    margin-top:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    outline:none;
+}
+input:focus, select:focus{
+    border-color:var(--primary);
+}
+body.dark input,
+body.dark select{
+    background:#2a2a2a;
+    color:#fff;
+    border:1px solid #555;
+}
+
+/* SUBJECTS */
+.subjects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:12px;
+    margin-top:18px;
+}
+.subjects label{
+    background:#f0f0f0;
+    padding:10px;
+    border-radius:8px;
+    cursor:pointer;
+}
+body.dark .subjects label{background:#2a2a2a}
+
+/* BUTTON */
+button{
+    margin-top:20px;
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:var(--primary);
+    color:#fff;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+button:hover{opacity:0.9}
+
+/* RECEIPT */
+.receipt{
+    margin-top:25px;
+    padding:25px;
+    border-radius:15px;
+    background:#f8f9ff;
+    border:2px dashed var(--primary);
+}
+body.dark .receipt{background:#1a1a1a}
+
+.receipt h3{
+    text-align:center;
+    color:var(--primary);
+    margin-bottom:15px;
+}
+.receipt p{
+    margin:8px 0;
+    font-size:15px;
+}
+
+/* FOOTER */
+footer{
+    margin-top:70px;
+    text-align:center;
+    padding:25px;
+    background:#111;
+    color:#fff;
+    border-radius:14px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    body{flex-direction:column}
+    .sidebar{
+        position:relative;
+        width:100%;
+        height:auto;
+    }
+    .content{margin-left:0}
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>Elite Academy</h2>
+    <a href="#home">Home</a>
+    <a href="#subjects">Subjects</a>
+    <a href="#fees">Fees</a>
+    <a href="#enroll">Enroll</a>
+    <button class="toggle" onclick="toggleDark()">🌙 Dark Mode</button>
+</div>
+
+<div class="content">
+
+<section id="home" class="hero">
+    <h1>Elite Learning Academy</h1>
+    <p>Tuition for Classes 1 – 12 (All Subjects)</p>
+</section>
+
+<section id="subjects">
+<h2 class="title">Subjects We Teach</h2>
+<div class="card">
+<b>Primary (1–5)</b><br>
+English, Mathematics, EVS, Science, Computer, Hindi/Bengali<br><br>
+
+<b>Middle (6–8)</b><br>
+English, Mathematics, Science, History, Geography, Computer<br><br>
+
+<b>Secondary (9–10)</b><br>
+Physics, Chemistry, Biology, Mathematics, English, Computer<br><br>
+
+<b>Senior (11–12)</b><br>
+Physics, Chemistry, Mathematics, Biology, Computer Science
+</div>
+</section>
+
+<section id="fees">
+<h2 class="title">Fees Structure</h2>
+<div class="card">
+<p><b>Classes 1 – 5:</b> ₹400 / month</p><br>
+<p><b>Classes 6 – 8:</b> ₹700 / month</p><br>
+<p><b>Classes 9 – 10:</b> ₹1000 / month</p><br>
+<p><b>Classes 11 – 12:</b> ₹1500 / month</p>
+</div>
+</section>
+
+<section id="enroll">
+<h2 class="title">Enrollment Form</h2>
+<div class="card">
+
+<input id="name" placeholder="Student Name">
+
+<select id="class">
+    <option value="">Select Class</option>
+    <option value="1-5">Class 1 – 5</option>
+    <option value="6-8">Class 6 – 8</option>
+    <option value="9-10">Class 9 – 10</option>
+    <option value="11-12">Class 11 – 12</option>
+</select>
+
+<input id="phone" placeholder="Phone Number">
+<input id="fee" placeholder="Monthly Fee (Auto)" readonly>
+
+<div class="subjects">
+<label><input type="checkbox"> English</label>
+<label><input type="checkbox"> Mathematics</label>
+<label><input type="checkbox"> Physics</label>
+<label><input type="checkbox"> Chemistry</label>
+<label><input type="checkbox"> Biology</label>
+<label><input type="checkbox"> Computer</label>
+<label><input type="checkbox"> History</label>
+<label><input type="checkbox"> Geography</label>
+</div>
+
+<button onclick="submitForm()">Submit Enrollment</button>
+<div id="msg"></div>
+
+</div>
+</section>
+
+<footer>
+© 2025 Elite Learning Academy <br>
+Email: learning_A2Z@gmail.com
+</footer>
+
+</div>
+
+<script>
+const classFee={
+    "1-5":400,
+    "6-8":700,
+    "9-10":1000,
+    "11-12":1500
+};
+
+document.getElementById("class").addEventListener("change",function(){
+    document.getElementById("fee").value =
+        this.value ? "₹"+classFee[this.value] : "";
+});
+
+function toggleDark(){
+    document.body.classList.toggle("dark");
+}
+
+function submitForm(){
+    const name=document.getElementById("name").value;
+    const cls=document.getElementById("class").value;
+    const phone=document.getElementById("phone").value;
+    const fee=classFee[cls];
+    const subjects=[...document.querySelectorAll(".subjects input:checked")]
+                    .map(s=>s.parentElement.innerText.trim());
+
+    const msg=document.getElementById("msg");
+
+    if(!name||!cls||!phone||subjects.length===0){
+        msg.innerHTML="<p style='color:red;margin-top:15px'>Please fill all details</p>";
+        return;
+    }
+
+    msg.innerHTML=`
+    <div class="receipt">
+        <h3>📄 Enrollment Receipt</h3>
+        <p><b>Student Name:</b> ${name}</p>
+        <p><b>Class:</b> ${cls.replace("-"," – ")}</p>
+        <p><b>Phone:</b> ${phone}</p>
+        <p><b>Subjects:</b> ${subjects.join(", ")}</p>
+        <p><b>Monthly Fee:</b> ₹${fee}</p>
+        <p><b>Status:</b> Enrolled Successfully ✅</p>
+    </div>`;
+}
+</script>
+
+</body>
+</html>
